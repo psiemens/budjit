@@ -14,7 +14,7 @@ var app = express();
 
 // Database connection
 mongoose.set('debug', true); // Log all queries that mongoose fire in the application
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
