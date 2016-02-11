@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  ul
+    each transaction in transactions
+      li
+        span= transaction.timestamp
+        span= transaction.location
+        span= transaction.amount
