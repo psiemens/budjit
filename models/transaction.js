@@ -5,6 +5,7 @@ var Promise   = require('bluebird');
 
 var transactionSchema = new db.Schema({
   timestamp:  { type: Date, required: true },
+  type:       { type: String, required: true },
   amount:     { type: Number, required: true },
   location:   { type: String, required: true }
 });
