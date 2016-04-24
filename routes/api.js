@@ -6,7 +6,7 @@ var Transaction = require('../models/transaction');
 
 router.post('/alert/email', function(req, res) {
 
-  var data = EmailHelpers.parse(req.body);
+  var data = EmailHelpers.parse(req.body['body-plain']);
 
   return Transaction.create(data).then(function (object, err) {
     if (err) {
