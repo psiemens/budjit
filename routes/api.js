@@ -10,7 +10,7 @@ router.post('/alert/email', function(req, res) {
 
   console.log(data);
 
-  return Transaction.create(data).then(function (object, err) {
+  Transaction.create(data).then(function (object, err) {
     if (err) {
       res.send('There was an error recording the transaction.')
     } else {
