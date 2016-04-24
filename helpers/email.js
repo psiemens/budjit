@@ -4,8 +4,8 @@ var EmailHelpers = {
     var re = /Purchase Amount: \$(\d*.\d\d)/;
     var match;
 
-    var amount = 0,
-        location = '';
+    var amount = 9999.99,
+        location = 'none';
 
 
     if ((match = re.exec(text)) == null) {
