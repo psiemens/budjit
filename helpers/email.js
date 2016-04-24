@@ -11,7 +11,7 @@ var EmailHelpers = {
     if ((match = re.exec(text)) == null) {
       //throw new Error('Email parsing failed');
     } else {
-      amount = parseFloat(match[1]),
+      amount = parseFloat(match[1]);
     }
 
     return {
