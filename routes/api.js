@@ -6,7 +6,7 @@ var Transaction = require('../models/transaction');
 // Twilio SMS Request URL
 router.post('/alert/email', function(req, res) {
 
-  console.log(req);
+  res.send(req.body);
 
   // function createTransaction(data){
   //   return Transaction.create(data).then(function (object, err) {
