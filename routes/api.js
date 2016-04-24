@@ -8,6 +8,8 @@ router.post('/alert/email', function(req, res) {
 
   var data = EmailHelpers.parse(req.body['body-plain']);
 
+  console.log(data);
+
   return Transaction.create(data).then(function (object, err) {
     if (err) {
       res.send('There was an error recording the transaction.')
