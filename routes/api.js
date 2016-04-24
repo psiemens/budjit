@@ -1,22 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+var EmailHelpers = require('../helpers/email');
 var Transaction = require('../models/transaction');
 
-// Twilio SMS Request URL
 router.post('/alert/email', function(req, res) {
 
-  res.send(req.body);
+  var data = EmailHelpers.parse(req.body);
 
-  // function createTransaction(data){
-  //   return Transaction.create(data).then(function (object, err) {
-  //     if (err) {
-  //       res.send('There was an error recording the transaction.')
-  //     } else {
-  //       res.send(object);
-  //     }
-  //   });
-  // }
+  return Transaction.create(data).then(function (object, err) {
+    if (err) {
+      res.send('There was an error recording the transaction.')
+    } else {
+      res.send(object);
+    }
+  });
 
 });
 
