@@ -8,6 +8,7 @@ router.post('/alert/email', function(req, res) {
 
   var data = EmailHelpers.parse(req.body['body-plain']);
 
+  console.log(body);
   console.log(data);
 
   Transaction.create(data).then(function (object, err) {
