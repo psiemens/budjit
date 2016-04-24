@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var Transaction = require('../models/transaction');
-var Twilio = require('../helpers/twilio');
 
 // Twilio SMS Request URL
 router.post('/alert/email', function(req, res) {
