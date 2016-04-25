@@ -1,7 +1,6 @@
 var EmailHelpers = {
-  parse: function(data) {
-    var text = data.replace(/(\r\n|\n|\r)/gm, '');
-    var re = /(Purchase|Withdrawal) Amount: \$(\d*.\d\d)/;
+  parse: function(text) {
+    var re = /(Purchase|Withdrawal|Deposit) Amount: \$(\d*.\d\d)(?:.|[\r\n])*Transaction Description: (.*) [\r\n]/;
     var match;
 
     if ((match = re.exec(text)) == null) {
@@ -9,13 +8,14 @@ var EmailHelpers = {
     }
 
     var type = match[1].toLowerCase(),
-        amount = parseFloat(match[2]);
+        amount = parseFloat(match[2]),
+        location = match[3];
 
     return {
       timestamp: new Date(),
       type: type,
       amount: amount,
-      location: 'none'
+      location: location
     };
   }
 };
