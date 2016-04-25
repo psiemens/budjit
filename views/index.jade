@@ -4,6 +4,4 @@ block content
   ul
     each transaction in transactions
       li
-        span= transaction.timestamp
-        span= transaction.location
-        span= transaction.amount
+        span #{transaction.location.getName()} - $#{transaction.amount} - #{transaction.vagueTimestamp}

@@ -10,6 +10,8 @@ var locationSchema = new db.Schema({
 });
 
 
+// Static functions
+
 locationSchema.statics.findOrCreateBySlug = function(slug) {
   return Location.findOne({slug: slug})
     .then(function(transaction) {
@@ -19,6 +21,12 @@ locationSchema.statics.findOrCreateBySlug = function(slug) {
         return Location.create({slug: slug});
       }
     });
+};
+
+// Methods
+
+locationSchema.methods.getName = function() {
+  return this.name || this.slug;
 };
 
 var Model = db.model('Location', locationSchema);
