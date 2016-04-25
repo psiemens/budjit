@@ -12,7 +12,6 @@ var EmailHelpers = {
         location = match[3];
 
     return {
-      timestamp: new Date(),
       type: type,
       amount: amount,
       location: location
